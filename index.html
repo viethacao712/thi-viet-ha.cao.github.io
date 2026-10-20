@@ -53,19 +53,32 @@
       border-bottom: 1px solid var(--border);
     }
     .hero-img {
-      width: 170px;
-      height: 170px;
+      width: 175px;
+      height: 175px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--primary-light);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       background-color: #eaecef;
     }
     .hero-bio h1 { font-size: 2.2rem; color: var(--primary); margin-bottom: 0.3rem; }
     .hero-bio h2 { font-size: 1.15rem; font-weight: 500; color: var(--text-muted); margin-bottom: 0.8rem; }
     .hero-bio p { margin-bottom: 1rem; color: var(--text); }
-    .contact-links { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.9rem; }
-    .contact-links a { color: var(--primary); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 0.9rem; font-size: 0.9rem; }
+    .contact-links a, .contact-links span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
     .contact-links a:hover { text-decoration: underline; }
+    .contact-badge {
+      background: #eef5fa;
+      padding: 0.3rem 0.65rem;
+      border-radius: 20px;
+      border: 1px solid #d4e6f1;
+    }
 
     /* Sections */
     section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
@@ -81,7 +94,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 40px;
+      width: 45px;
       height: 3px;
       background: var(--primary-light);
     }
@@ -94,7 +107,7 @@
     .item ul { margin-left: 1.25rem; margin-top: 0.4rem; }
     .item li { margin-bottom: 0.3rem; font-size: 0.95rem; }
 
-    /* Tags & Badges */
+    /* Cards & Badges */
     .badge {
       display: inline-block;
       background: #eef2f7;
@@ -107,10 +120,29 @@
     .pub-card {
       background: var(--bg-alt);
       border-left: 4px solid var(--primary);
-      padding: 1rem;
+      padding: 1.1rem;
       border-radius: 0 6px 6px 0;
       margin-bottom: 1.2rem;
     }
+
+    /* Referees Grid */
+    .referee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .ref-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--primary-light);
+      padding: 1.2rem;
+      border-radius: 6px;
+    }
+    .ref-name { font-weight: 700; color: var(--primary); margin-bottom: 0.3rem; font-size: 1.05rem; }
+    .ref-title { font-weight: 500; color: var(--text); font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .ref-org { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+    .ref-contact a { color: var(--primary); font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .ref-contact a:hover { text-decoration: underline; }
 
     footer {
       text-align: center;
@@ -136,6 +168,7 @@
         <li><a href="#research">Research</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#referees">Referees</a></li>
       </ul>
     </nav>
   </header>
@@ -143,7 +176,7 @@
   <div class="container">
     <!-- Hero / Profile -->
     <div class="hero" id="about">
-      <img src="avatar.jpg" alt="Thi Viet Ha CAO" class="hero-img" onerror="this.src='https://via.placeholder.com/170?text=Ha+Cao'">
+      <img src="avatar.jpg" alt="Thi Viet Ha CAO" class="hero-img" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Thi+Viet+Ha+Cao&background=1a5276&color=fff&size=200&bold=true';">
       <div class="hero-bio">
         <h1>Thi Viet Ha CAO</h1>
         <h2>Master Student in BioHealth Engineering | Pharmacist</h2>
@@ -153,10 +186,10 @@
           and recombinant protein & nanobody characterization.
         </p>
         <div class="contact-links">
-          <span><i class="fa-solid fa-location-dot"></i> Saint-Martin-d'Hères, France</span>
-          <a href="mailto:thi-viet-ha.cao@etu.univ-grenoble-alpes.fr"><i class="fa-solid fa-envelope"></i> Email</a>
-          <a href="tel:+33744199208"><i class="fa-solid fa-phone"></i> (+33) 744 199 208</a>
-          <a href="https://github.com/<your-username>" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+          <span class="contact-badge"><i class="fa-solid fa-location-dot"></i> Saint-Martin-d'Hères, France</span>
+          <a class="contact-badge" href="mailto:viethacao.contact@gmail.com"><i class="fa-solid fa-envelope"></i> viethacao.contact@gmail.com</a>
+          <a class="contact-badge" href="mailto:thi-viet-ha.cao@etu.univ-grenoble-alpes.fr"><i class="fa-solid fa-graduation-cap"></i> Academic Email</a>
+          <a class="contact-badge" href="https://github.com/viethacao712" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
       </div>
     </div>
@@ -171,7 +204,7 @@
         </div>
         <div class="item-subtitle">Université Grenoble Alpes (Grenoble, France)</div>
         <ul>
-          <li>Awarded the <strong>IDEX Scholarship</strong> (2026–2027)</li>
+          <li>Awarded the prestigious <strong>IDEX Scholarship</strong> (2026–2027)</li>
         </ul>
       </div>
 
@@ -180,11 +213,11 @@
           <span class="item-title">Bachelor of Pharmacy</span>
           <span class="item-date">09/2019 – 08/2024</span>
         </div>
-        <div class="item-subtitle">University of Medicine and Pharmacy at Ho Chi Minh City (UMP - Vietnam)</div>
+        <div class="item-subtitle">University of Medicine and Pharmacy at Ho Chi Minh City (UMPSP - Vietnam)</div>
         <ul>
           <li>Graduated with <strong>CGPA 3.13/4.00 (Top 10% of the School)</strong></li>
           <li><strong>Thesis:</strong> <em>Investigation of anti-Helicobacter pylori activity of Lactic Acid Bacteria isolated from fermented foods</em> (Grade: 9.4/10.0)</li>
-          <li>Awarded Merit Scholarships for 5 consecutive years and 3 corporate scholarships (Homtamin, OPC Pharma).</li>
+          <li>Awarded Merit Scholarships for 5 consecutive years alongside corporate awards (Homtamin, OPC Pharma).</li>
         </ul>
       </div>
 
@@ -195,7 +228,7 @@
         </div>
         <div class="item-subtitle">University of Tsukuba (Tsukuba, Japan)</div>
         <ul>
-          <li>Engaged in scientific sessions: Genome editing techniques, research proposal preparation, and mRNA vaccine platforms.</li>
+          <li>Engaged in virtual discussions covering genome editing techniques, English research proposals, and mRNA vaccine platforms.</li>
         </ul>
       </div>
     </section>
@@ -227,8 +260,8 @@
           <span class="item-date">08/2024 – 07/2026</span>
         </div>
         <ul>
-          <li><strong>DKSH Vietnam Co., Ltd (02/2025 – 07/2026):</strong> Hospital Key Account Representative — Managed relationships across 12 major hospitals in HCMC, achieving 30% YoY growth.</li>
-          <li><strong>B.Braun Vietnam Co., Ltd (08/2024 – 02/2025):</strong> Sales Staff (Surgery & Avitum Care) — Supported hospital distribution channels and coordinated 3 nationwide medical conferences.</li>
+          <li><strong>DKSH Vietnam Co., Ltd (02/2025 – 07/2026):</strong> Key Account Representative — Managed 12 hospital accounts in HCMC, achieving 30% YoY revenue growth.</li>
+          <li><strong>B.Braun Vietnam Co., Ltd (08/2024 – 02/2025):</strong> Sales Staff (Surgery & Avitum Care) — Handled hospital product portfolios and organized 3 national medical conferences.</li>
         </ul>
       </div>
     </section>
@@ -244,16 +277,16 @@
         </span>
       </div>
 
-      <h4 style="font-size: 1.05rem; margin: 1rem 0 0.5rem;">Selected Presentations:</h4>
+      <h4 style="font-size: 1.05rem; margin: 1rem 0 0.5rem;">Conferences & Presentations:</h4>
       <ul style="margin-left: 1.25rem;">
         <li><strong>International Biology Conference 2025 (Rencontres du Vietnam / USTH / ICISE):</strong> Oral Presentation on anti-<em>H. pylori</em> activity of LAB.</li>
-        <li><strong>AFPS 2023 (Hanoi):</strong> Poster Presentation on probiotic potential of LAB from Vietnamese pickles.</li>
-        <li><strong>Pharmaceutical Science and Technology Conference 2023:</strong> Oral Presentation (<em>First Prize Award</em>).</li>
-        <li><strong>Euréka XXIV Student Scientific Research Prize (2022).</strong></li>
+        <li><strong>Asian Federation for Pharmaceutical Sciences (AFPS 2023):</strong> Poster presentation.</li>
+        <li><strong>Pharmaceutical Science and Technology Conference 2023 (UMPSP):</strong> Oral presentation (<em>First Prize Award</em>).</li>
+        <li><strong>Student Scientific Research Prize Euréka XXIV (2022).</strong></li>
       </ul>
     </section>
 
-    <!-- Skills & Honors -->
+    <!-- Skills -->
     <section id="skills">
       <h3 class="section-title">Skills & Highlights</h3>
       <div style="margin-bottom: 1rem;">
@@ -279,8 +312,8 @@
       <div>
         <strong>Leadership & Extracurricular:</strong>
         <ul style="margin-left: 1.25rem; margin-top: 0.5rem;">
-          <li><strong>Head of Pharmacy English Club (2019–2022):</strong> Organized public speaking contests with 3000+ attendees and IELTS mock sessions.</li>
-          <li><strong>Project Manager at ECO Vietnam Group (2020–2021):</strong> Coordinated volunteer service-learning projects with international universities.</li>
+          <li><strong>Head of Pharmacy English Club (2019–2022):</strong> Organized public speaking contests with 3000+ attendees and IELTS mock test series.</li>
+          <li><strong>Project Manager at ECO Vietnam Group (2020–2021):</strong> Facilitated community programs and service-learning initiatives with NTU and NUS.</li>
           <li><strong>Languages:</strong> Vietnamese (Native), English (IELTS Academic 6.5 - B2).</li>
         </ul>
       </div>
@@ -289,14 +322,45 @@
     <!-- Referees -->
     <section id="referees" style="border-bottom: none;">
       <h3 class="section-title">Academic Referees</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
-        <div class="pub-card" style="margin: 0;">
-          <strong>Dr. Valérie GUIEU</strong><br>
-          <span style="font-size: 0.9rem; color: var(--text-muted);">M1 BioHealth Engineering Coordinator<br>Université Grenoble Alpes, France<br>Email: valerie.guieu@univ-grenoble-alpes.fr</span>
+      <div class="referee-grid">
+        <!-- Referee 1: Tu Anh Nguyen -->
+        <div class="ref-card">
+          <div class="ref-name">Assoc. Prof. Tu Anh NGUYEN, PhD</div>
+          <div class="ref-title">Supervisor | Head of Microbiology - Parasitology Dept.</div>
+          <div class="ref-org">Head of Research - Academic Affairs - External Relations<br>School of Pharmacy, UMP Ho Chi Minh City, Vietnam</div>
+          <div class="ref-contact">
+            <a href="mailto:nguyentuanh@ump.edu.vn"><i class="fa-solid fa-envelope"></i> nguyentuanh@ump.edu.vn</a>
+          </div>
         </div>
-        <div class="pub-card" style="margin: 0;">
-          <strong>Dr. David WARTHER</strong><br>
-          <span style="font-size: 0.9rem; color: var(--text-muted);">M1 BioHealth Engineering Coordinator<br>Université Grenoble Alpes, France<br>Email: david.warther@univ-grenoble-alpes.fr</span>
+
+        <!-- Referee 2: Minh Thai Nguyen -->
+        <div class="ref-card">
+          <div class="ref-name">Assoc. Prof. Minh Thai NGUYEN, PhD</div>
+          <div class="ref-title">Lecturer</div>
+          <div class="ref-org">Microbiology - Parasitology Department<br>School of Pharmacy, UMP Ho Chi Minh City, Vietnam</div>
+          <div class="ref-contact">
+            <a href="mailto:minhthai2511@ump.edu.vn"><i class="fa-solid fa-envelope"></i> minhthai2511@ump.edu.vn</a>
+          </div>
+        </div>
+
+        <!-- Referee 3: Valerie Guieu -->
+        <div class="ref-card">
+          <div class="ref-name">Dr. Valérie GUIEU</div>
+          <div class="ref-title">M1 BioHealth Engineering Coordinator</div>
+          <div class="ref-org">Université Grenoble Alpes, France</div>
+          <div class="ref-contact">
+            <a href="mailto:valerie.guieu@univ-grenoble-alpes.fr"><i class="fa-solid fa-envelope"></i> valerie.guieu@univ-grenoble-alpes.fr</a>
+          </div>
+        </div>
+
+        <!-- Referee 4: David Warther -->
+        <div class="ref-card">
+          <div class="ref-name">Dr. David WARTHER</div>
+          <div class="ref-title">M1 BioHealth Engineering Coordinator</div>
+          <div class="ref-org">Université Grenoble Alpes, France</div>
+          <div class="ref-contact">
+            <a href="mailto:david.warther@univ-grenoble-alpes.fr"><i class="fa-solid fa-envelope"></i> david.warther@univ-grenoble-alpes.fr</a>
+          </div>
         </div>
       </div>
     </section>
